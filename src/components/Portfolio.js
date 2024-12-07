@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "../stylesheet/Portfolio.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/swiper-bundle.css';
+import SwiperCore from 'swiper';
+
+SwiperCore.use([SwiperCore.Navigation]);
 
 const Portfolio = () => {
   const images = Array.from({ length: 50 }, (_, i) => ({
     id: i + 1,
     src: `https://via.placeholder.com/150?text=Image+${i + 1}`,
-    category: ["Nature", "Animals", "Technology", "Art", "Food", "People"][
-      i % 6
-    ], // Assign a category cyclically
+    category: ["Nature", "Animals", "Technology", "Art", "Food", "People"][i % 6], // Assign categories cyclically
   }));
 
   const categories = ["All", "Nature", "Animals", "Technology", "Art", "Food", "People"];
@@ -30,7 +33,7 @@ const Portfolio = () => {
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
-    setCurrentPage(1); // Reset to first page on category change
+    setCurrentPage(1); // Reset to the first page when category changes
   };
 
   const handlePageChange = (page) => {
@@ -43,6 +46,31 @@ const Portfolio = () => {
     setActiveCategory("All");
     setCurrentPage(1); // Reset to the first page
   };
+
+
+  //Video Carousel
+
+    const videos = [
+      { id: 1, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 1" },
+      { id: 2, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 2" },
+      { id: 3, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 3" },
+      { id: 4, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 4" },
+      { id: 5, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 5" },
+      { id: 6, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 6" },
+    ];
+  
+    const [showModal, setShowModal] = useState(false);
+    const [currentVideo, setCurrentVideo] = useState("");
+  
+    const handleCardClick = (videoSrc) => {
+      setCurrentVideo(videoSrc);
+      setShowModal(true);
+    };
+  
+    const handleCloseModal = () => {
+      setShowModal(false);
+    };
+
 
   return (
     <section id="portfolio" className="section">
@@ -78,59 +106,100 @@ const Portfolio = () => {
         </div>
       </div>
 
-      {/* Gallery Component */}
-      <div className="filter-controls">
-        <div className="tabs">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={`tab ${activeCategory === category ? "active" : ""}`}
-              onClick={() => handleCategoryChange(category)}
-            >
-              {category}
-            </button>
+      {/* Photo Gallery */}
+      <div className="photogallery">
+        {/* Filter Tabs */}
+        <div className="filter-controls">
+          <div className="tabs">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`tab ${activeCategory === category ? "active" : ""}`}
+                onClick={() => handleCategoryChange(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+          <button className="reset-filter" onClick={resetFilter}>
+            Reset
+          </button>
+        </div>
+
+        {/* Gallery Grid */}
+        <div className="gallery-grid">
+          {currentImages.map((image) => (
+            <div key={image.id} className="gallery-item">
+              <img src={image.src} alt={`Image ${image.id}`} />
+              <p>{image.category}</p>
+            </div>
           ))}
         </div>
-        <button className="reset-filter" onClick={resetFilter}>
-           Reset
-        </button>
-      </div>
 
-      <div className="gallery-grid">
-        {currentImages.map((image) => (
-          <div key={image.id} className="gallery-item">
-            <img src={image.src} alt={`Image ${image.id}`} />
-            <p>{image.category}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="pagination">
-        <button
-          className="arrow-button"
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-         Prev
-        </button>
-
-        {Array.from({ length: totalPages }, (_, i) => (
+        {/* Pagination */}
+        <div className="pagination">
           <button
-            key={i}
-            className={`page-button ${currentPage === i + 1 ? "active" : ""}`}
-            onClick={() => handlePageChange(i + 1)}
+            className="arrow-button"
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
           >
-            {i + 1}
+            Prev
           </button>
-        ))}
 
-        <button
-          className="arrow-button"
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i}
+              className={`page-button ${currentPage === i + 1 ? "active" : ""}`}
+              onClick={() => handlePageChange(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
+
+          <button
+            className="arrow-button"
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
+      {/*Video Slider*/}
+
+      <div>
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={3}
+          loop
+          navigation={{
+            nextEl: ".swiper-button-next", // Specify the button for next
+            prevEl: ".swiper-button-prev", // Specify the button for prev
+          }}
         >
-          Next
-        </button>
+          {videos.map((video) => (
+            <SwiperSlide key={video.id}>
+              <div className="video-card" onClick={() => handleCardClick(video.src)}>
+                <video src={video.src} muted loop className="video-preview"></video>
+                <h3>{video.title}</h3>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Custom navigation buttons */}
+        <div className="swiper-button-next">Next</div>
+        <div className="swiper-button-prev">Prev</div>
+
+        {showModal && (
+          <div className="modal-overlay">
+            <div className="modal">
+              <video src={currentVideo} controls autoPlay className="video-player"></video>
+              <button onClick={handleCloseModal} className="close-btn">Close</button>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
