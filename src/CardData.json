@@ -1,0 +1,27 @@
+[
+    {
+      "video": "/video/11.mp4",
+      "heading": "Heading 1",
+      "text": "This is the description for Card 1.",
+      "button": "Learn More"
+    },
+    {
+      "video": "video/12.mp4",
+      "heading": "Heading 2",
+      "text": "This is the description for Card 2.",
+      "button": "Get Started"
+    },
+    {
+      "video": "video/13.mp4",
+      "heading": "Heading 3",
+      "text": "This is the description for Card 3.",
+      "button": "Discover More"
+    },
+    {
+      "video": "video/14.mp4",
+      "heading": "Heading 4",
+      "text": "This is the description for Card 4.",
+      "button": "Contact Us"
+    }
+  ]
+  
