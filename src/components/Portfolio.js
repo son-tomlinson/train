@@ -34,7 +34,9 @@ const Portfolio = () => {
   };
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
   };
 
   const resetFilter = () => {
@@ -104,6 +106,14 @@ const Portfolio = () => {
       </div>
 
       <div className="pagination">
+        <button
+          className="arrow-button"
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+         Prev
+        </button>
+
         {Array.from({ length: totalPages }, (_, i) => (
           <button
             key={i}
@@ -113,6 +123,14 @@ const Portfolio = () => {
             {i + 1}
           </button>
         ))}
+
+        <button
+          className="arrow-button"
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
     </section>
   );
