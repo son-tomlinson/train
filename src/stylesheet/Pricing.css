@@ -1,0 +1,12 @@
+.pricebox{
+    display: flex;
+    gap: 30px;
+}
+
+.pricedetails{
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+}

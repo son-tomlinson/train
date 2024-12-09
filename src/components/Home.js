@@ -20,7 +20,7 @@ function Home() {
   };
 
   return (
-    <div className="slider-banner">
+    <div className="slider-banner" id="home">
       <div className="background-video">
         <video
           src={CardData[activeIndex].video}

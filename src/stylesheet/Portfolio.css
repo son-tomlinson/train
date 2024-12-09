@@ -2,9 +2,7 @@
     display: flex;
     flex-direction: column;
 }
-#portfolio .heading{
-    text-align: center;
-}
+
 
 #portfolio .maincategory{
     display: flex;
@@ -26,7 +24,7 @@
     max-width: calc(16.666% - 24px)
 }
 
-.section {
+#portfolio .section {
     padding: 20px;
     text-align: center;
   }
