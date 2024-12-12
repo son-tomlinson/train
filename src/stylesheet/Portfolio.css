@@ -8,25 +8,65 @@
     display: flex;
     flex: 1 1;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 20px;
+    justify-content: space-between;
 }
 #portfolio #category{
-    height: 350px;
+    height: 400px;
     padding: 20px 30px;
     background-color: black;
+    color: white;
     display: flex;
     flex-direction: column;
     text-align: left;
     justify-content: end;
+    align-items: start;
     bottom: 0;
-    flex: 1 1 calc(16.666% - 24px);
-    max-width: calc(16.666% - 24px)
+    flex-basis: 200px;
+    flex-grow: 1;
+    cursor: pointer;
+}
+@media (max-width:1023px) {
+    #portfolio #category{
+      height:250px;
+    }
+}
+
+
+.category1{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.308), black), url('../image/category/12.png');
+  object-fit: cover;
+}
+.category2{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.308), black), url('../image/category/123.png');
+}
+.category3{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.308), black), url('../image/category/1234.png');
+}
+.category4{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.308), black), url('../image/category/12345.png');
+}
+.category5{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.308), black), url('../image/category/123456.png');
+}
+.category6{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.308), black), url('../image/category/1234567.png');
+}
+
+#category h3{
+    font-family: "Over the Rainbow", cursive;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#category h2{
+    font-size: 20px;
 }
 
 #portfolio .section {
     padding: 20px;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
   }
   
   /* Filter Tabs */
@@ -192,8 +232,8 @@
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    max-width: 90%;
-    max-height: 90%;
+    width: 80%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -208,19 +248,81 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #ff0000;
+    background-color: rgba(253, 37, 37, 0.637);
     color: white;
     border: none;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
   }
   
   .close-btn:hover {
-    background-color: #cc0000;
+    background-color: rgb(0, 0, 0);
+    color:white;
   }
+
+    /*POPUP MODAL DESIGN*/
+
+    .modal-thumbnails {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .thumbnail {
+      margin: 0 5px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      width: 15%;
+      object-fit: cover;
+      opacity: 70%;
+    }
+    .modal-image{
+      width: 70%;
+      height: 100%;
+    }
+    .thumbnail:hover {
+      border-color: #007bff;
+    }
+    
+    .modelbuttons button{
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+    }
+  
+    .previmage{
+      display: flex;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    .modelbuttons{
+      display: flex;
+      position: absolute;
+      justify-content: space-between;
+      width: 80%;
+      top: 50%;
+      
+    }
+    
+
+
+
+
+
   
   /* Add these to your CSS */
+  .portfoliovideos{
+    position: relative;
+  }
+
   .swiper-button-next, .swiper-button-prev {
     position: absolute;
     top: 50%;
@@ -240,3 +342,5 @@
     left: 10px;
   }
   
+
+

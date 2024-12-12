@@ -1,0 +1,144 @@
+{
+    "categories": [
+        {
+          "id": 1,
+          "title": "Category 1",
+          "subtitle": "Nature Designs",
+          "backgroundImage": "url('../image/category/12.png')"
+        },
+        {
+          "id": 2,
+          "title": "Category 2",
+          "subtitle": "Animals Designs",
+          "backgroundImage": "url('/path-to-background2.jpg')"
+        },
+        {
+          "id": 3,
+          "title": "Category 3",
+          "subtitle": "Technology Designs",
+          "backgroundImage": "url('/path-to-background3.jpg')"
+        },
+        {
+          "id": 4,
+          "title": "Category 4",
+          "subtitle": "Art Designs",
+          "backgroundImage": "url('/path-to-background4.jpg')"
+        },
+        {
+          "id": 5,
+          "title": "Category 5",
+          "subtitle": "Food Designs",
+          "backgroundImage": "url('/path-to-background5.jpg')"
+        },
+        {
+          "id": 6,
+          "title": "Category 6",
+          "subtitle": "People Designs",
+          "backgroundImage": "url('/path-to-background6.jpg')"
+        }
+      ],
+
+    "images": [{
+      "id": 1,
+      "src": "https://via.placeholder.com/150?text=Image+1",
+      "category": "Nature"
+    },
+    {
+      "id": 2,
+      "src": "https://via.placeholder.com/150?text=Image+2",
+      "category": "Animals"
+    },
+    {
+      "id": 3,
+      "src": "https://via.placeholder.com/150?text=Image+3",
+      "category": "Technology"
+    },
+    {
+      "id": 4,
+      "src": "https://via.placeholder.com/150?text=Image+4",
+      "category": "Art"
+    },
+    {
+      "id": 5,
+      "src": "https://via.placeholder.com/150?text=Image+5",
+      "category": "Food"
+    },
+    {
+      "id": 6,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "People"
+    },
+    {
+      "id": 7,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Nature"
+    },
+    {
+      "id": 8,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Animals"
+    },
+    {
+      "id": 9,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Technology"
+    },
+    {
+      "id": 10,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Art"
+    },
+    {
+      "id": 11,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Food"
+    },
+    {
+      "id": 12,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "People"
+    },
+    {
+      "id": 13,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Nature"
+    },
+    {
+      "id": 14,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Animals"
+    },
+    {
+      "id": 15,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Technology"
+    },
+    {
+      "id": 16,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Art"
+    },
+    {
+      "id": 17,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Food"
+    },
+    {
+      "id": 18,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "People"
+    },
+    {
+      "id": 19,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Nature"
+    },
+    {
+      "id": 20,
+      "src": "https://via.placeholder.com/150?text=Image+6",
+      "category": "Animals"
+    }
+]
+    
+}
+  

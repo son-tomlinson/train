@@ -3,7 +3,7 @@ import "../stylesheet/Contact.css"
 
 const ContactUs = () => {
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section container">
         <div className="contact-container">
       {/* Left Side - Company Info */}
       <div className="company-info">

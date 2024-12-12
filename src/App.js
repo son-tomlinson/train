@@ -53,7 +53,8 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <nav>
+        <nav className="headerbar section">
+          <img src="../logo.png" className="logo"/>
           <ul className="nav-links">
             <li>
               <a
@@ -102,6 +103,9 @@ const App = () => {
               >
                 Contact Us
               </a>
+            </li>
+            <li>
+            <button>BOOK NOW</button>
             </li>
           </ul>
         </nav>

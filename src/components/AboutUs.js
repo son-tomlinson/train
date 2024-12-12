@@ -2,7 +2,7 @@ import React from "react";
 import "../stylesheet/About.css"
 const AboutUs = () => {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section container">
       <div className="abtimg">
         <img src="./image/about_img.jpg" />
         </div>

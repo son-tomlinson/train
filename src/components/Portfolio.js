@@ -1,112 +1,129 @@
 import React, { useState } from "react";
-import "../stylesheet/Portfolio.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/swiper-bundle.css';
-import SwiperCore from 'swiper';
-
-SwiperCore.use([SwiperCore.Navigation]);
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "../stylesheet/Portfolio.css";
+import imageData from "../imageData.json";
 
 const Portfolio = () => {
-  const images = Array.from({ length: 50 }, (_, i) => ({
-    id: i + 1,
-    src: `https://via.placeholder.com/150?text=Image+${i + 1}`,
-    category: ["Nature", "Animals", "Technology", "Art", "Food", "People"][i % 6], // Assign categories cyclically
-  }));
-
   const categories = ["All", "Nature", "Animals", "Technology", "Art", "Food", "People"];
   const [activeCategory, setActiveCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [modalImages, setModalImages] = useState(imageData.images);
 
   const imagesPerPage = 10;
-
-  const filteredImages =
-    activeCategory === "All"
-      ? images
-      : images.filter((image) => image.category === activeCategory);
-
+  const filteredImages = activeCategory === "All"
+    ? imageData.images
+    : imageData.images.filter((image) => image.category === activeCategory);
   const totalPages = Math.ceil(filteredImages.length / imagesPerPage);
 
+  // Paginate the filtered images
   const currentImages = filteredImages.slice(
     (currentPage - 1) * imagesPerPage,
     currentPage * imagesPerPage
   );
 
+  // Handle category change in PhotoGallery
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
-    setCurrentPage(1); // Reset to the first page when category changes
+    setCurrentPage(1);
   };
 
+  // Handle page change
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
   };
 
-  const resetFilter = () => {
-    setActiveCategory("All");
-    setCurrentPage(1); // Reset to the first page
+  // Open image modal with images of the selected category
+  const openImageModal = (index, categoryImages) => {
+    setModalImages(categoryImages);
+    setCurrentImageIndex(index);
+    setShowImageModal(true);
   };
 
+  // Close image modal
+  const closeImageModal = () => {
+    setShowImageModal(false);
+  };
 
-  //Video Carousel
+  // Navigate through images in modal
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex + 1 < modalImages.length ? prevIndex + 1 : 0
+    );
+  };
 
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex - 1 >= 0 ? prevIndex - 1 : modalImages.length - 1
+    );
+  };
+
+    // Video carousel data
     const videos = [
       { id: 1, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 1" },
       { id: 2, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 2" },
       { id: 3, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 3" },
       { id: 4, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 4" },
-      { id: 5, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 5" },
-      { id: 6, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Video 6" },
     ];
   
     const [showModal, setShowModal] = useState(false);
     const [currentVideo, setCurrentVideo] = useState("");
   
+    // Handle video card click
     const handleCardClick = (videoSrc) => {
       setCurrentVideo(videoSrc);
       setShowModal(true);
     };
   
+    // Close modal
     const handleCloseModal = () => {
       setShowModal(false);
     };
 
-
   return (
     <section id="portfolio" className="section">
+
+
+      {/* Main Category Section */}
+
       <div className="heading">
-        <h4>Hello Man</h4>
-        <h1>Welcome to Aiimtech</h1>
+        <h4>Pricing</h4>
+        <h1>Choose your plan to Continue</h1>
       </div>
 
-      <div className="maincategory">
-        <div id="category">
-          <h3>JONES JEBARAJ</h3>
-          <h2>UI/UX Designer</h2>
-        </div>
-        <div id="category">
-          <h3>kill me</h3>
-          <h2>UI/UX</h2>
-        </div>
-        <div id="category">
-          <h3>Nothing More than</h3>
-          <h2>UI/UX Designer</h2>
-        </div>
-        <div id="category">
-          <h3>JONES JEBARAJ</h3>
-          <h2>UI/UX Designer</h2>
-        </div>
-        <div id="category">
-          <h3>JONES JEBARAJ</h3>
-          <h2>UI/UX Designer</h2>
-        </div>
-        <div id="category">
-          <h3>JONES JEBARAJ</h3>
-          <h2>UI/UX Designer</h2>
-        </div>
+      <div className="maincategory container">
+        {categories.slice(1).map((category, index) => (
+          <div
+            key={index + 1}
+            id={`category`}
+            className={`category${index + 1}`}
+            onClick={() => {
+              const categoryImages = imageData.images.filter(
+                (image) => image.category === category
+              );
+              openImageModal(0, categoryImages); // Open modal with images of the category
+            }}
+          >
+            <h3>{`Category ${index + 1}`}</h3>
+            <h2>{`${category} Designs`}</h2>
+          </div>
+        ))}
       </div>
 
-      {/* Photo Gallery */}
+
+      {/* PhotoGallery Section */}
+
+      <div className="heading">
+        <h4>Pricing</h4>
+        <h1>Choose your plan to Continue</h1>
+      </div>
+
       <div className="photogallery">
         {/* Filter Tabs */}
         <div className="filter-controls">
@@ -121,15 +138,21 @@ const Portfolio = () => {
               </button>
             ))}
           </div>
-          <button className="reset-filter" onClick={resetFilter}>
-            Reset
-          </button>
         </div>
 
         {/* Gallery Grid */}
         <div className="gallery-grid">
-          {currentImages.map((image) => (
-            <div key={image.id} className="gallery-item">
+          {currentImages.map((image, index) => (
+            <div
+              key={image.id}
+              className="gallery-item"
+              onClick={() =>
+                openImageModal(
+                  (currentPage - 1) * imagesPerPage + index,
+                  filteredImages
+                )
+              }
+            >
               <img src={image.src} alt={`Image ${image.id}`} />
               <p>{image.category}</p>
             </div>
@@ -145,7 +168,6 @@ const Portfolio = () => {
           >
             Prev
           </button>
-
           {Array.from({ length: totalPages }, (_, i) => (
             <button
               key={i}
@@ -155,7 +177,6 @@ const Portfolio = () => {
               {i + 1}
             </button>
           ))}
-
           <button
             className="arrow-button"
             onClick={() => handlePageChange(currentPage + 1)}
@@ -166,17 +187,72 @@ const Portfolio = () => {
         </div>
       </div>
 
-      {/*Video Slider*/}
+      {/* Image Viewer Modal */}
+      {showImageModal && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <button className="close-btn" onClick={closeImageModal}>
+              Close
+            </button>
+            <div className="previmage">
+            <img
+                src={
+                  modalImages[
+                    (currentImageIndex - 1 + modalImages.length) % modalImages.length
+                  ].src
+                }
+                alt="Previous Thumbnail"
+                className="thumbnail prev-thumbnail"
+                onClick={handlePrevImage}
+              />
 
-      <div>
+            <img
+              src={modalImages[currentImageIndex].src}
+              alt={`Image ${modalImages[currentImageIndex].id}`}
+              className="modal-image"
+            />
+
+            <img
+                src={
+                  modalImages[
+                    (currentImageIndex + 1) % modalImages.length
+                  ].src
+                }
+                alt="Next Thumbnail"
+                className="thumbnail next-thumbnail"
+                onClick={handleNextImage}
+              />
+              </div>
+
+            <div className="modelbuttons">
+            <button className="prev-btn" onClick={handlePrevImage}>
+              Prev
+            </button>
+            <button className="next-btn" onClick={handleNextImage}>
+              Next
+            </button>
+            </div>
+
+            {/* Thumbnails for next and previous images */}
+
+          </div>
+        </div>
+      )}
+
+
+      <div className="heading">
+        <h4>Pricing</h4>
+        <h1>Choose your plan to Continue</h1>
+      </div>
+
+        {/* Video Slider */}
+        <div className="portfoliovideos container">
         <Swiper
           spaceBetween={10}
           slidesPerView={3}
           loop
-          navigation={{
-            nextEl: ".swiper-button-next", // Specify the button for next
-            prevEl: ".swiper-button-prev", // Specify the button for prev
-          }}
+          navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
+          modules={[Navigation]}
         >
           {videos.map((video) => (
             <SwiperSlide key={video.id}>

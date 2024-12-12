@@ -1,26 +1,26 @@
 [
     {
       "video": "/video/11.mp4",
-      "heading": "Heading 1",
-      "text": "This is the description for Card 1.",
+      "heading": "Book a video call and get online treatment",
+      "text": "Mediquince, an app for your health, provides high-quality video calls to enhance the patient experience. Mediquince offers exclusive offline and online treatment, easy OP consulting, video call booking through its top-notch out-patient portal. ",
       "button": "Learn More"
     },
     {
       "video": "video/12.mp4",
-      "heading": "Heading 2",
-      "text": "This is the description for Card 2.",
+      "heading": "Create your medical profile, control everything",
+      "text": "Impress your patients with a seamless experience. from check-in to follow-ups, provide top-notch service that keeps them comming back.",
       "button": "Get Started"
     },
     {
       "video": "video/13.mp4",
-      "heading": "Heading 3",
-      "text": "This is the description for Card 3.",
+      "heading": "A Complete online in & outpatient treatment app",
+      "text": "Mediquince has been designed for it seamless doctor management of operations, patient care, and Hospital administrative tasks.",
       "button": "Discover More"
     },
     {
       "video": "video/14.mp4",
-      "heading": "Heading 4",
-      "text": "This is the description for Card 4.",
+      "heading": "Future of Medical Industry Need Us",
+      "text": "It has offered me a platform to serve more and more patients by providing online consultations to patients. It is very user-friendly and delivers a better patient experience.",
       "button": "Contact Us"
     }
   ]

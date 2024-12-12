@@ -20,7 +20,8 @@ function Home() {
   };
 
   return (
-    <div className="slider-banner" id="home">
+    <div className="slider-banner container" id="home">
+
       <div className="background-video">
         <video
           src={CardData[activeIndex].video}
@@ -29,12 +30,16 @@ function Home() {
           loop
           className="background-video-player"
         />
+        
+        <div className="video-overlay"></div>
+
         <div className="content">
           <h1>{CardData[activeIndex].heading}</h1>
           <p>{CardData[activeIndex].text}</p>
           <button>{CardData[activeIndex].button}</button>
         </div>
       </div>
+      <div className="heroofcards">
       <div className="cards-container">
         {CardData.map((card, index) => (
           <div
@@ -45,7 +50,7 @@ function Home() {
             {`Card ${index + 1}`}
           </div>
         ))}
-      </div>
+      </div> </div>
     </div>
   );
 }

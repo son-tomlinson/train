@@ -2,10 +2,10 @@ import React from "react";
 import "../stylesheet/Pricing.css"
 const Pricing = () => {
   return (
-    <section id="pricing" className="section">
+    <section id="pricing" className="section container">
       <div className="heading">
-        <h4>PRICING</h4>
-        <h1>CHOOSE YOUR PLAN TO CONTINUE</h1>
+        <h4>Pricing</h4>
+        <h1>Choose your plan to Continue</h1>
       </div>
 
       <div className="pricebox">
