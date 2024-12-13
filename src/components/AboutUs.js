@@ -6,19 +6,16 @@ const AboutUs = () => {
       <div className="abtimg">
         <img src="./image/about_img.jpg" />
         </div>
-      <div className="abtcontent">
-        <h2>AIIMTECH TECHNOLOGY</h2>
+      <div className="abtcontent heading">
+        <h1>AIIMTECH TECHNOLOGY</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-          anim id est laborum.
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
           <img src="./image/fivestar.jpg" />
           <h3>The Best Solution</h3>
-          <h4>Develop All Your Business</h4>
+          <h3>Develop All Your Business</h3>
       </div>
     </section>
   );

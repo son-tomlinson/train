@@ -4,6 +4,22 @@
     height: 90vh;
     overflow: hidden;
   }
+
+  @media (max-width:1023px) {
+    .slider-banner{
+      height: 60vh;
+    }
+    .content h1{
+      font-size: 3.5rem !important;
+    }
+    .content p{
+      font-size: 1.5rem !important;
+      padding: 20px 10% !important;
+    }
+    .content{
+      width: 80% !important;
+    }
+  }
   
   .background-video {
     position: relative;
@@ -36,6 +52,7 @@
     text-align: center;
     color: #fff;
     z-index: 2;
+    width: 60%;
   }
   
   .content h1 {
@@ -48,7 +65,8 @@
     font-size: 1.2rem;
     margin-bottom: 20px;
     font-weight: 400;
-    padding: 20px 100px;
+    padding: 20px 20%;
+    font-weight: 100;
   }
   
   .content button {

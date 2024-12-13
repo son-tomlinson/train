@@ -22,14 +22,23 @@
     justify-content: end;
     align-items: start;
     bottom: 0;
-    flex-basis: 200px;
-    flex-grow: 1;
+    flex-basis: calc(16.6% - 16px);
+    max-width: calc(18% - 16px);
     cursor: pointer;
+}
+@media (max-width:1405px){
+  #portfolio #category{
+    flex-basis: calc(32.6% - 16px);
+    max-width: calc(46% - 26px);
+  }
 }
 @media (max-width:1023px) {
     #portfolio #category{
       height:250px;
+      flex-basis: calc(33.6% - 16px);
+      max-width: calc(46% - 26px);
     }
+    
 }
 
 
@@ -70,25 +79,41 @@
   }
   
   /* Filter Tabs */
+
+  .filter-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
   .tabs {
     display: flex;
     justify-content: center;
     margin-bottom: 16px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    width: 100%;
+    border: 1px solid rgb(216, 216, 216);
+    background-color: #f9f9f9;
   }
   
   .tab {
-    margin: 4px;
-    padding: 8px 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 14px 16px;
+    border: none;
     cursor: pointer;
-    background-color: #f9f9f9;
     transition: background-color 0.3s;
+    width: 100%;
+    background-color: #f9f9f9;
   }
   
-  .tab.active,
+  
   .tab:hover {
+    background-color: #c1dfff;
+    color: #007bff;
+  }
+  .tab.active{
     background-color: #007bff;
     color: white;
     border-color: #007bff;
@@ -103,7 +128,7 @@
   }
   
   .gallery-item {
-    flex: 1 1 calc(20% - 16px); /* Five images per row */
+    flex: 1 1 calc(16.66% - 16px); /* Five images per row */
     max-width: calc(20% - 16px);
     text-align: center;
     background-color: #fff;
@@ -122,9 +147,15 @@
   .gallery-item:hover {
     transform: translateY(-5px);
   }
-  
+
   /* Responsive styles */
-  @media (max-width: 768px) {
+  @media (max-width: 1700px){
+    .gallery-item{
+      flex:1 1 calc(22.66% - 16px);
+      max-width: calc(30% - 16px);
+    }
+  }
+  @media (max-width: 1023px) {
     .gallery-item {
       flex: 1 1 calc(33.333% - 16px); /* Three images per row on tablets */
       max-width: calc(33.333% - 16px);
@@ -178,23 +209,6 @@
     color: white;
     border-color: #dc3545;
   }
-  
-  /* Adjust Tabs Container */
-  .filter-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  
-  .tabs {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-
 
 
   /*VIDEO SLIDER*/
@@ -207,10 +221,20 @@
   .video-preview {
     width: 100%;
     height: auto;
+    object-fit: cover;
   }
   
   h3 {
     text-align: center;
+  }
+
+  .swiper-slide{
+    margin-right: 20px !important;
+  }
+  @media (max-width:1500px){
+    .video-preview{
+      height: 500px;
+    }
   }
   
   /* Modal Styling */
@@ -311,12 +335,6 @@
       top: 50%;
       
     }
-    
-
-
-
-
-
   
   /* Add these to your CSS */
   .portfoliovideos{
@@ -330,7 +348,7 @@
     font-size: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 10px;
+    padding: 30px;
     cursor: pointer;
   }
   
@@ -341,6 +359,3 @@
   .swiper-button-prev {
     left: 10px;
   }
-  
-
-

@@ -2,20 +2,20 @@
   .contact-container {
     display: flex;
     flex-wrap: wrap;
-    padding: 50px;
     background-color: #ffffff;
     border-radius: 10px;
+    width: 100%;
   }
   
-  /* Left Side - Company Info */
+  /* Left Side - Contact Information */
   .company-info {
     flex: 1;
     padding: 20px;
   }
   
-  .company-info h2 {
+  .contact-container h1 {
     color: #3366cc;
-    margin-bottom: 15px;
+    text-align: left;
   }
   
   .company-info p {
@@ -29,17 +29,12 @@
     font-size: 1rem;
   }
   
-  /* Right Side - Contact Form */
+  /* Right Side - Company Info */
   .contact-form {
     flex: 1;
     padding: 20px;
     background: #f9f9f9;
     border-radius: 10px;
-  }
-  
-  .contact-form h2 {
-    color: #3366cc;
-    margin-bottom: 15px;
   }
   
   .form-group {
@@ -49,7 +44,9 @@
   .form-group label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.6rem ;
+    text-align: left;
   }
   
   .form-group input,
@@ -58,7 +55,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.5rem;
   }
   
   textarea {
@@ -77,20 +74,18 @@
   }
   
   .btn:hover {
-    background-color: #ff6f61;
+    background-color: black;
   }
   
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 1210px) {
     .contact-container {
       flex-direction: column;
-      padding: 20px;
     }
   
     .company-info,
     .contact-form {
       width: 100%;
-      padding: 10px;
     }
   }
   

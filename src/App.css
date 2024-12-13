@@ -52,6 +52,54 @@ header {
   font-weight: 400;
 }
 
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+}
+
+/*Responsive Header Design*/
+
+@media (max-width: 1208px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    color: #202020;
+    padding: 15px 10px;
+  }
+  .nav-links a {
+    color: #202020 !important;
+  }
+
+  .hamburger {
+    display: block;
+  }
+  .nav-links button{
+    width: 100%;
+    border-radius: 0 !important;
+  }
+}
+
+
+
 .nav-links a {
   text-decoration: none;
   color: #fff;
@@ -68,6 +116,12 @@ header {
 
 .section {
   padding: 0 8%;
+}
+
+@media (max-width:1400px){
+  .section {
+    padding: 0 4%;
+  }
 }
 
 .container {

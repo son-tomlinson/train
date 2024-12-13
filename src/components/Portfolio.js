@@ -14,12 +14,14 @@ const Portfolio = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [modalImages, setModalImages] = useState(imageData.images);
 
-  const imagesPerPage = 10;
+  const imagesPerPage = 12;
   const filteredImages = activeCategory === "All"
     ? imageData.images
     : imageData.images.filter((image) => image.category === activeCategory);
   const totalPages = Math.ceil(filteredImages.length / imagesPerPage);
 
+  
+  
   // Paginate the filtered images
   const currentImages = filteredImages.slice(
     (currentPage - 1) * imagesPerPage,
@@ -124,7 +126,7 @@ const Portfolio = () => {
         <h1>Choose your plan to Continue</h1>
       </div>
 
-      <div className="photogallery">
+      <div className="photogallery container">
         {/* Filter Tabs */}
         <div className="filter-controls">
           <div className="tabs">
@@ -189,7 +191,7 @@ const Portfolio = () => {
 
       {/* Image Viewer Modal */}
       {showImageModal && (
-        <div className="modal-overlay">
+        <div className="modal-overlay" >
           <div className="modal">
             <button className="close-btn" onClick={closeImageModal}>
               Close
@@ -253,6 +255,16 @@ const Portfolio = () => {
           loop
           navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
           modules={[Navigation]}
+          breakpoints={{
+            1500:{
+              slidesPerView:3,
+            },
+            0: {
+              slidesPerView:2,
+            }
+          }
+
+          }
         >
           {videos.map((video) => (
             <SwiperSlide key={video.id}>
@@ -265,8 +277,8 @@ const Portfolio = () => {
         </Swiper>
 
         {/* Custom navigation buttons */}
-        <div className="swiper-button-next">Next</div>
-        <div className="swiper-button-prev">Prev</div>
+        <div className="swiper-button-next"></div>
+        <div className="swiper-button-prev"></div>
 
         {showModal && (
           <div className="modal-overlay">

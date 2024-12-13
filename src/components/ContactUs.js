@@ -6,22 +6,8 @@ const ContactUs = () => {
     <section id="contact" className="section container">
         <div className="contact-container">
       {/* Left Side - Company Info */}
-      <div className="company-info">
-        <h2>MEDIQUINCE</h2>
-        <p>
-          We are committed to providing exceptional customer service and 
-          innovative solutions. Feel free to reach out to us for any inquiries or collaborations.
-        </p>
-        <div className="contact-details">
-          <p><strong>Address:</strong> 123 Main Street, Anytown, USA</p>
-          <p><strong>Phone:</strong> +1 234 567 890</p>
-          <p><strong>Email:</strong> contact@yourcompany.com</p>
-        </div>
-      </div>
-
-      {/* Right Side - Contact Form */}
-      <div className="contact-form">
-        <h2>Contact Us</h2>
+      <div className="contact-form heading">
+        <h1>Contact Us</h1>
         <form>
           <div className="form-group">
             <label htmlFor="name">Name</label>
@@ -38,6 +24,17 @@ const ContactUs = () => {
           <button type="submit" className="btn">Submit</button>
         </form>
       </div>
+
+      {/* Right Side - Contact Form */}
+      <div className="company-info heading">
+        <h1>MEDIQUINCE</h1>
+        <div className="contact-details">
+          <p><strong>Address:</strong> 123 Main Street, Anytown, USA</p>
+          <p><strong>Phone:</strong> +1 234 567 890</p>
+          <p><strong>Email:</strong> contact@yourcompany.com</p>
+        </div>
+      </div>
+
 
 
     </div>

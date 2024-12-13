@@ -8,6 +8,7 @@ import ContactUs from "./components/ContactUs";
 
 const App = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleScroll = (e, id) => {
     e.preventDefault();
@@ -15,13 +16,13 @@ const App = () => {
       behavior: "smooth",
     });
     setActiveSection(id.slice(1));
+    setMenuOpen(false); // Close menu on section navigation
   };
 
   useEffect(() => {
     // Reset scroll to top on refresh
     window.scrollTo(0, 0);
   }, []);
-  
 
   useEffect(() => {
     const handleScrollEvent = () => {
@@ -54,8 +55,14 @@ const App = () => {
     <div className="App">
       <header>
         <nav className="headerbar section">
-          <img src="../logo.png" className="logo"/>
-          <ul className="nav-links">
+          <img src="../logo.png" className="logo" alt="Logo" />
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            ☰
+          </button>
+          <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
             <li>
               <a
                 href="#home"
@@ -65,7 +72,6 @@ const App = () => {
                 Home
               </a>
             </li>
-
             <li>
               <a
                 href="#portfolio"
@@ -75,7 +81,6 @@ const App = () => {
                 Portfolio
               </a>
             </li>
-
             <li>
               <a
                 href="#about"
@@ -85,7 +90,6 @@ const App = () => {
                 About Us
               </a>
             </li>
-
             <li>
               <a
                 href="#pricing"
@@ -105,7 +109,7 @@ const App = () => {
               </a>
             </li>
             <li>
-            <button>BOOK NOW</button>
+              <button>BOOK NOW</button>
             </li>
           </ul>
         </nav>
@@ -118,23 +122,15 @@ const App = () => {
         <ContactUs />
       </main>
       <footer>
-
-      <div className="map-section">
-
-        <iframe
-
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434508828!2d-122.419415684681!3d37.77492977975817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085814d0c45db4f%3A0x1dabc0bc6a243491!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1600053424996!5m2!1sen!2sin"
-          allowFullScreen
-          loading="lazy"
-          title="Store Location">
-
-          </iframe>
-         </div>
-
-         <div className="footer">
-          Heloo Mediquince
-         </div>
-         
+        <div className="map-section">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434508828!2d-122.419415684681!3d37.77492977975817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085814d0c45db4f%3A0x1dabc0bc6a243491!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1600053424996!5m2!1sen!2sin"
+            allowFullScreen
+            loading="lazy"
+            title="Store Location"
+          ></iframe>
+        </div>
+        <div className="footer">Hello Mediquince</div>
       </footer>
     </div>
   );
