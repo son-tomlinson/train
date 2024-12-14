@@ -25,6 +25,11 @@
 .abtcontent img{
     height: 45px;
 }
+@media (max-width:1210px){
+    .abtcontent img{
+        height: 75px;
+    }
+}
 .abtcontent h1{
     text-align: left;
 }

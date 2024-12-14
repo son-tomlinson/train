@@ -121,17 +121,41 @@ const App = () => {
         <Pricing />
         <ContactUs />
       </main>
-      <footer>
-        <div className="map-section">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434508828!2d-122.419415684681!3d37.77492977975817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085814d0c45db4f%3A0x1dabc0bc6a243491!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1600053424996!5m2!1sen!2sin"
-            allowFullScreen
-            loading="lazy"
-            title="Store Location"
-          ></iframe>
-        </div>
-        <div className="footer">Hello Mediquince</div>
-      </footer>
+      <footer className="footer">
+  <div className="footer-container">
+    {/* Footer Navigation Links */}
+    <div className="socialicons">
+      <img src="../image/icons/facebook.svg" />
+      <img src="../image/icons/instagram.svg" />
+      <img src="../image/icons/youtube.svg" />
+      <img src="../image/icons/twitter.svg" />
+      <img src="../image/icons/linkdin.svg" />
+    </div>
+    <ul className="footer-nav">
+      <li>
+        <a href="#home" onClick={(e) => handleScroll(e, "#home")}>Home</a>
+      </li>
+      <li>
+        <a href="#portfolio" onClick={(e) => handleScroll(e, "#portfolio")}>Portfolio</a>
+      </li>
+      <li>
+        <a href="#about" onClick={(e) => handleScroll(e, "#about")}>About Us</a>
+      </li>
+      <li>
+        <a href="#pricing" onClick={(e) => handleScroll(e, "#pricing")}>Pricing</a>
+      </li>
+      <li>
+        <a href="#contact" onClick={(e) => handleScroll(e, "#contact")}>Contact Us</a>
+      </li>
+    </ul>
+
+    {/* Copyright Section */}
+    <div className="footer-copyright">
+      &copy; {new Date().getFullYear()} Mediquince. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
     </div>
   );
 };
